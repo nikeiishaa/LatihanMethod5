@@ -49,8 +49,20 @@ while (true)
         Console.Write("Masukkan IDR: ");
         decimal idr = decimal.Parse(Console.ReadLine());
 
-        hasil = konversiMataUang(idr);
-        Console.WriteLine($"Hasil: {hasil} USD");
+        Console.WriteLine("Nilai rate saat ini Rp 16000. Apakah ingin mengubah rate? (Y)");
+        pilihan = Console.ReadLine();
+        if (pilihan.ToUpper() == "Y")
+        {
+            Console.Write("Rate yang diinginkan: Rp ");
+            decimal rate = decimal.Parse(Console.ReadLine());
+
+            hasil = konversiMataUang(idr, rate);
+        }
+        else
+        {
+            hasil = konversiMataUang(idr);
+        }
+        Console.WriteLine($"Hasil: {hasil} USD"); 
     }
     else if (pilihan == "4")
     {
